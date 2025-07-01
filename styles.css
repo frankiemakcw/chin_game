@@ -1,0 +1,293 @@
+body {
+    font-family: 'Microsoft JhengHei', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #000000;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#progress-container {
+    background-color: rgba(30,30,30,0.8);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 1.5;
+    border: 1px solid #333;
+}
+
+.completed-text {
+    color: #ffffff;
+    letter-spacing: 3px;
+    font-size: 1.8rem;
+    white-space: pre-wrap;
+}
+
+.punctuation {
+    color: #bdbdbd;
+    font-weight: bold;
+}
+
+.current-char-box {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border: 2px solid white;
+    margin-left: 5px;
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 24px;
+    color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+#options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 260px;
+    margin: 0 auto;
+}
+
+.option-btn {
+    width: 110px;
+    height: 110px;
+    font-size: 36px;
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 4px 0 rgba(255,255,255,0.1),
+        inset 0 -4px 8px rgba(0,0,0,0.4);
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+    position: relative;
+}
+
+.option-btn:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0 0 rgba(255,255,255,0.1),
+        inset 0 -2px 5px rgba(0,0,0,0.4);
+}
+
+#stats {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #bdbdbd;
+    line-height: 1.6;
+}
+
+#score {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 28px;
+}
+
+#combo {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.best-score {
+    color: #ffeb3b;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#restart-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#restart-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.highlight {
+    animation: flash 0.3s;
+}
+
+@keyframes flash {
+    0% { background-color: rgba(255,0,0,0.3); }
+    100% { background-color: rgba(255,255,255,0.08); }
+}
+
+.fragment {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 100;
+    animation: fragment-fly 0.4s linear forwards;
+}
+
+@keyframes fragment-fly {
+    0% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.9; 
+    }
+    100% { 
+        transform: translate(var(--tx), var(--ty)) scale(0.2); 
+        opacity: 0; 
+    }
+}
+
+#music-control {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+#start-btn {
+    padding: 12px 30px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#start-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#global-volume-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(30,30,30,0.8);
+    padding: 10px 15px;
+    border-radius: 20px;
+    z-index: 1000;
+    color: white;
+}
+
+#global-volume-control span {
+    font-size: 14px;
+}
+
+.combo-effect {
+    animation: comboPop 0.5s;
+}
+
+@keyframes comboPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+/* 音頻控制面板 */
+/* 音頻控制面板 */
+#audio-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(30,30,30,0.9);
+    padding: 12px;
+    border-radius: 10px;
+    z-index: 1000;
+    align-items: center;
+    border: 1px solid #444;
+}
+
+.audio-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    width: 100%;
+}
+
+.audio-control button {
+    background-color: rgba(70,70,70,0.8);
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.audio-control button:hover {
+    background-color: rgba(90,90,90,0.8);
+}
+
+#volume-slider {
+    width: 80px;
+    cursor: pointer;
+}
+
+#volume-value {
+    width: 35px;
+    text-align: center;
+    font-size: 13px;
+}
+
+#sound-toggle, #music-toggle {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+#sound-toggle:hover, #music-toggle:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
