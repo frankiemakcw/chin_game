@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>古文背誦挑戰 - 赤壁懷古</title>
+    <title>文言十二 - 赤壁懷古</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,20 +18,16 @@
         <source src="sound/wrong.mp3" type="audio/mpeg">
     </audio>
     
-    <!-- 音頻控制面板 (右下角) -->
+    <!-- 音頻控制面板 -->
     <div id="audio-controls">
-        <div class="audio-control">
-            <button id="sound-toggle">音效: 開啟</button>
-        </div>
-        <div class="audio-control">
-            <button id="music-toggle">音樂: 開啟</button>
-        </div>
+        <button id="sound-toggle">音效: 開啟</button>
+        <button id="music-toggle">音樂: 開啟</button>
     </div>
     
     <!-- 開始畫面 -->
     <div id="start-screen">
-        <h1>赤壁懷古背誦挑戰</h1>
-        <button id="start-btn">開始遊戲</button>
+        <h1>念奴嬌 赤壁懷古</h1>
+        <button id="start-btn">開始</button>
     </div>
     
     <!-- 遊戲主畫面 (初始隱藏) -->
@@ -42,19 +38,19 @@
         </div>
         
         <div id="options-grid">
-            <button class="option-btn" onclick="checkAnswer(0)"></button>
-            <button class="option-btn" onclick="checkAnswer(1)"></button>
-            <button class="option-btn" onclick="checkAnswer(2)"></button>
-            <button class="option-btn" onclick="checkAnswer(3)"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
         </div>
         
         <div id="stats">
             <div>分數: <span id="score">0</span></div>
-            <div id="combo">連擊: <span id="combo-count">0</span></div>
+            <div>連擊: <span id="combo-count">0</span></div>
             <div id="best-score-display" class="best-score"></div>
         </div>
 
-        <button id="restart-btn" style="display:none;" onclick="restartGame()">再玩一次</button>
+        <button id="restart-btn" style="display:none;">再玩一次</button>
     </div>
 
     <script src="script.js"></script>

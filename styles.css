@@ -1,3 +1,4 @@
+/* 基礎樣式 */
 body {
     font-family: 'Microsoft JhengHei', sans-serif;
     max-width: 800px;
@@ -15,6 +16,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* 遊戲區域 */
 #progress-container {
     background-color: rgba(30,30,30,0.8);
     padding: 15px;
@@ -53,6 +55,7 @@ h1 {
     box-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
+/* 選項按鈕 */
 #options-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -78,7 +81,6 @@ h1 {
         0 4px 0 rgba(255,255,255,0.1),
         inset 0 -4px 8px rgba(0,0,0,0.4);
     text-shadow: 0 0 8px rgba(255,255,255,0.3);
-    position: relative;
 }
 
 .option-btn:active {
@@ -88,6 +90,7 @@ h1 {
         inset 0 -2px 5px rgba(0,0,0,0.4);
 }
 
+/* 遊戲統計 */
 #stats {
     margin-top: 20px;
     font-size: 24px;
@@ -101,7 +104,7 @@ h1 {
     font-size: 28px;
 }
 
-#combo {
+#combo-count {
     color: #ff9800;
     font-weight: bold;
 }
@@ -112,30 +115,27 @@ h1 {
     margin-top: 10px;
 }
 
-#restart-btn {
-    margin-top: 15px;
-    padding: 10px 25px;
+/* 按鈕 */
+#start-btn, #restart-btn {
+    padding: 12px 30px;
+    font-size: 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
+    margin-top: 15px;
 }
 
-#restart-btn:hover {
+#start-btn:hover, #restart-btn:hover {
     background-color: #45a049;
     transform: scale(1.05);
 }
 
+/* 特效 */
 .highlight {
     animation: flash 0.3s;
-}
-
-@keyframes flash {
-    0% { background-color: rgba(255,0,0,0.3); }
-    100% { background-color: rgba(255,255,255,0.08); }
 }
 
 .fragment {
@@ -150,6 +150,15 @@ h1 {
     animation: fragment-fly 0.4s linear forwards;
 }
 
+.combo-effect {
+    animation: comboPop 0.5s;
+}
+
+@keyframes flash {
+    0% { background-color: rgba(255,0,0,0.3); }
+    100% { background-color: rgba(255,255,255,0.08); }
+}
+
 @keyframes fragment-fly {
     0% { 
         transform: translate(0, 0) scale(1); 
@@ -161,74 +170,13 @@ h1 {
     }
 }
 
-#music-control {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    cursor: pointer;
-    z-index: 1000;
-    font-size: 14px;
-}
-
-#start-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-}
-
-#start-btn {
-    padding: 12px 30px;
-    font-size: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-#start-btn:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-#global-volume-control {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(30,30,30,0.8);
-    padding: 10px 15px;
-    border-radius: 20px;
-    z-index: 1000;
-    color: white;
-}
-
-#global-volume-control span {
-    font-size: 14px;
-}
-
-.combo-effect {
-    animation: comboPop 0.5s;
-}
-
 @keyframes comboPop {
     0% { transform: scale(1); }
     50% { transform: scale(1.5); }
     100% { transform: scale(1); }
 }
 
-/* 音頻控制面板 */
-/* 音頻控制面板 */
+/* 音頻控制 */
 #audio-controls {
     position: fixed;
     bottom: 20px;
@@ -240,19 +188,10 @@ h1 {
     padding: 12px;
     border-radius: 10px;
     z-index: 1000;
-    align-items: center;
     border: 1px solid #444;
 }
 
-.audio-control {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: white;
-    width: 100%;
-}
-
-.audio-control button {
+#audio-controls button {
     background-color: rgba(70,70,70,0.8);
     color: white;
     border: 1px solid #555;
@@ -264,30 +203,16 @@ h1 {
     text-align: center;
 }
 
-.audio-control button:hover {
+#audio-controls button:hover {
     background-color: rgba(90,90,90,0.8);
 }
 
-#volume-slider {
-    width: 80px;
-    cursor: pointer;
-}
-
-#volume-value {
-    width: 35px;
+/* 開始畫面 */
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
-    font-size: 13px;
 }
-
-#sound-toggle, #music-toggle {
-    cursor: pointer;
-    font-size: 24px;
-    padding: 5px 10px;
-    border-radius: 50%;
-    transition: all 0.2s;
-}
-
-#sound-toggle:hover, #music-toggle:hover {
-    background-color: rgba(255,255,255,0.2);
-}
-
